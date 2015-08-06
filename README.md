@@ -1,4 +1,6 @@
-# Head's up this is being updated to work with Ruby 2.0
+# Update
+
+Hans here, I am dusting off this framework and updating it to work with Ruby 2.0.  Get ready for some meta-programming micro-framework goodness in two-point-ohhh!
 
     ~~~(^._.^)~~~ Bats!
 
