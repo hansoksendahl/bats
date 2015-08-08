@@ -1,7 +1,3 @@
-# Update
-
-Hans here, I am dusting off this framework and updating it to work with Ruby 2.0.  Get ready for some meta-programming micro-framework goodness in two-point-ohhh!
-
     ~~~(^._.^)~~~ Bats!
 
 A micro-framework.
@@ -86,27 +82,28 @@ Finally, when a route is through being called the status, headers, and body of t
 # Example
 
 ```Ruby
-    require 'bats'
+require 'bats'
+require 'json'
 
-    class App < Bats
-      get '/' do
-        s( 200 ).b 'Flap flap flap'
-      end
-      
-      # Redirect back to '/'
-      get '/redirect' do
-      	redirect '/', false
-      end
-      
-      get '/data' do
-      	s( 200 ).h( :content-type => 'application/json' ).b {}
-      end
-      
-      # On all other paths show a 404 error page with the body 'Page not found!'
-      get /\/.*/ do
-      	s( 404 ).b 'Page not found!'
-      end
-    end
-    
-    run App
+class App < Bats
+  get '/' do
+    s( 200 ).b 'Flap flap flap'
+  end
+  
+  # Redirect back to '/'
+  get '/redirect' do
+  	redirect '/', false
+  end
+  
+  get '/data' do
+  	s( 200 ).h("content-type" => 'application/json').b({:test => "test"}.to_json)
+  end
+  
+  # On all other paths show a 404 error page with the body 'Page not found!'
+  get /\/.*/ do
+  	s( 404 ).b 'Page not found!'
+  end
+end
+
+run App
 ```

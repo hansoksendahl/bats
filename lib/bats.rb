@@ -25,7 +25,7 @@ class Bats
 	
 	def self.redirect l, isTemporary = true
 		i = (isTemporary) ? '307' : '301'
-		s(i).headers(:Location => l)
+		s(i).headers("Location" => l)
 	end
 
 	def self.s i

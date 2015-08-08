@@ -1,6 +1,5 @@
 require './lib/bats.rb'
-
-require 'bats'
+require 'json'
 
 class App < Bats
   get '/' do
@@ -13,7 +12,7 @@ class App < Bats
   end
   
   get '/data' do
-  	s( 200 ).h( :content-type => 'application/json' ).b {}
+  	s( 200 ).h("content-type" => 'application/json').b({:test => "test"}.to_json)
   end
   
   # On all other paths show a 404 error page with the body 'Page not found!'
