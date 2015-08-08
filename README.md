@@ -59,8 +59,6 @@ Parameters:
 
 ## delete
 
-## delete
-
 Parameters:
 
 1. path - string
